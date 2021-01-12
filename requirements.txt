@@ -1,2 +1,6 @@
-Keras==2.4.3
-tensorflow==2.4.0
+Flask==0.12
+Google-Search-API==1.1.14
+google-search-results==2.0.0
+lxml==4.3.2
+google==2.0.2
+
