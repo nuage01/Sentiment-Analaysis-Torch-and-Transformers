@@ -1,0 +1,94 @@
+<head>
+  <meta charset="UTF-8">
+  <title>ellyes's NLP Analysis on reviews query page</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='stylesheets/style.css') }}">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
+  <link rel="icon" href="http://obj-cache.cloud.ruanbekker.com/favicon.ico">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class=header>
+    <div id="head">
+      <p>Prédiction</p>
+    </div>
+  </div>
+
+  <ul class="breadcrumb">
+    <li><a href="http://localhost:4000/">Home</a></li>
+    <li>Live prediction</li>
+  </ul>
+
+
+
+  <div id="middle-text">
+
+    <p>Analyse de l'avis du consomateur et extraction des Topics Principaux</p>
+  </div>
+
+
+
+
+
+  <div class="container">
+
+    <form action="/prediction/results_prediction" method="post">
+      <div class="input-group-p">
+        <div class="split-inputs">
+          <input id="form-control" type="text" class="form-control input-lg-p" name="input"
+            placeholder="Enterer un Avis" autofocus>
+        </div>
+
+        <div class="input-group-btn-p">
+          <button class="btn btn-primary btn-lg-p" type="submit" name="submit-l" onclick="lstm()">
+            Anglais LSTM
+          </button>
+          <button class="btn btn-primary btn-lg-p" type="submit" name="submit-t" onclick="trnsfrm()">
+            Multi-langues Transformers
+          </button>
+          <script>
+            function lstm() {
+              var input = document.getElementById('form-control');
+              input.value = input.value + ' [LSTM]';
+            }
+
+            function trnsfrm() {
+              var input = document.getElementById('form-control');
+              input.value = input.value + ' [TFRS]';
+            }
+          </script>
+        </div>
+      </div>
+    </form>
+
+
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Review</th>
+          <th>Polarité</th>
+          <th>Topics</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <th scope="row">{{ res['review_body']}}</th>
+          {%- if res['ml_score'] == "POSITIF" %}
+          {%- set review = "green" %}
+          {%- else %}
+          {%- set review = "red" %}
+          {%- endif %}
+          <td class="{{review}}">{{ res['ml_score']}}</td>
+          <td class="topics">{{ res['ml_topic'] }}</td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+</body>
+
+</html>

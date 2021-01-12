@@ -1,0 +1,7 @@
+python3 -m http.server 
+
+fuser -n tcp -k 4000
+fuser -n tcp -k 9200
+
+curl -XDELETE localhost:9200/scrapy_reviews
+

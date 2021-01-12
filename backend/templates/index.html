@@ -1,0 +1,114 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ellyes's NLP Analysis on reviews</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='stylesheets/style.css')}}">
+
+</head>
+
+<body>
+  <div class=header>
+    <div id="head">
+      <p> Home</p>
+    </div>
+  </div>
+
+  <div id="middle-text">
+    <p>Anlysis tools for E-commerce Reviews</p>
+  </div>
+
+  <div class="main_content">
+
+    <div class="markdown-body" onclick="location.href='queries'">
+      <div class="text-content">
+        <h1> Outil Reqûetes</h1>
+        <p>
+          Un moteur de recherche basé sur lucene utilisé par Elasticsearch pour
+          effectuer des recherches sur la base des Reviews</p>
+      </div>
+      <div class="img-content">
+        <img class="fit-picture" src="/static/search.png" alt="search">
+      </div>
+    </div>
+
+
+
+    <div class="markdown-body" onclick="location.href='processed_reviews'">
+      <div class="text-content">
+        <h1>Reviews Parsed</h1>
+        <p>
+          Affichage de la classification des ratings, des topics par
+          nos Algorithmes de machine learning
+
+        </p>
+      </div>
+      <div class="img-content">
+        <img class="fit-picture" src="/static/stars.jpeg" alt="SA">
+      </div>
+    </div>
+
+    <div class="markdown-body" onclick="location.href='dash'">
+      <div class="text-content">
+        <h1>Dashboard</h1>
+        <p>
+          Un tableau de bord qui permet d'afficher des statistiques sur notre base
+          de Reviews pour avoir un appercu global</p>
+      </div>
+      <div class="img-content">
+        <img class="fit-picture" src="/static/dashboard.png" alt="Grapefruit slice atop a pile of other slices">
+      </div>
+    </div>
+
+
+
+
+    <div class="markdown-body" onclick="location.href='prediction'">
+      <div class="text-content">
+        <h1>Live prediction</h1>
+        <p>
+          Permet d'extraire le topic principale du review et de classifer le Sentiment
+          pour une un commentaire grace a notre algorithme de Deep Learning
+        </p>
+      </div>
+      <div class="img-content">
+        <img class="fit-picture" src="/static/livepredict.png" alt="Grapefruit slice atop a pile of other slices">
+      </div>
+    </div>
+
+  </div>
+
+  <!-- <table class="table table-striped table-sm">
+        <thead>
+          <tr>
+            <th>Review</th>
+            <th>opinion</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for value in stocklist%}
+          <tr>
+            <td>{{ value[0] }}</td>
+            {%- if value[8] == 1 %} 
+            {%- set review = "POSITIF" %} 
+            {%- else %}
+            {%- set review = "NEGATIVE" %}
+            {%- endif %} 
+            <td>{{review }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table> -->
+
+  <div id="report"> </div>
+
+  <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+
+  <script>
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<head>
+  <meta charset="UTF-8">
+  <title>ellyes's NLP Analysis on reviews query page</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='stylesheets/style.css')}}">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
+  <link rel="icon" href="http://obj-cache.cloud.ruanbekker.com/favicon.ico">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class=header>
+    <div id="head">
+      <p>Prédiction</p>
+    </div>
+  </div>
+
+  <ul class="breadcrumb">
+    <li><a href="http://localhost:4000/">Home</a></li>
+    <li>Live prediction</li>
+  </ul>
+
+
+
+
+  <div class="research_centered">
+
+    <div class="prediction_container" onclick="location.href='prediction'">
+
+
+      <div id="middle-text">
+
+        <p>Analyse de l'avis de consomateur et extraction des Topics Principaux</p>
+      </div>
+
+      <form action="/prediction/results_prediction" method="post">
+        <div class="input-group-p">
+          <div>
+            <input type="text" class="form-control input-lg-p" name="input" placeholder="Enterer un Avis" autofocus>
+          </div>
+
+          <div class="input-group-btn-p">
+            <button class="btn btn-primary btn-lg-p" type="submit" name="submit-l">
+              Anglais LSTM
+            </button>
+            <button class="btn btn-primary btn-lg-p" type="submit" name="submit-t">
+              Multi-langues Transformers
+            </button>
+
+          </div>
+        </div>
+      </form>
+
+      <br><br>
+    </div>
+  </div>
+
+</body>
+
+</html>
