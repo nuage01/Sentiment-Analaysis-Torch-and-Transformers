@@ -1,7 +1,6 @@
 var svg = dimple.newSvg("#chartContainer",1450, 400);
      d3.csv("/static/data/topics_negatives.csv", function (data) {
- 
-     // Fill the SVG background
+
      svg.append("rect")
        .attr("x", "8px")
        .attr("y", "8px")
@@ -36,11 +35,9 @@ var svg = dimple.newSvg("#chartContainer",1450, 400);
  
        ];
  
-       // Set some custom display elements for each series shape
        mySeries.afterDraw = function (s, d) {
  
-         // I've defined the width in terms of the golden ratio as it seems like the sort
-         // of thing a designer would do.
+         //   use the golden ratio for the width
          var shape = d3.select(s),
              goldenRatio = 1.61803398875;
  
@@ -57,7 +54,7 @@ var svg = dimple.newSvg("#chartContainer",1450, 400);
            .style("opacity", 3)
            .style("pointer-events", "none");
  
-         // Add some bar labels for the yValue
+
          svg.append("text")
            .attr("x", parseFloat(shape.attr("x")) + shape.attr("width") / 2)
            .attr("y", parseFloat(shape.attr("y")) + (shape.attr("height") > 30 ? (shape.attr("height") / 2 + 8) : - 10))
@@ -68,12 +65,12 @@ var svg = dimple.newSvg("#chartContainer",1450, 400);
            .style("pointer-events", "none")
            .text(yAxis._getFormat()(d.yValue));
  
-         // Draw without a border
+
          shape.attr("stroke", shape.attr("fill"));
  
        };
  
-       // Override the standard tooltip behaviour
+
        mySeries.addEventHandler("mouseover", function (e){
  
          // Draw the text information in the top left corner
@@ -105,12 +102,11 @@ var svg = dimple.newSvg("#chartContainer",1450, 400);
  
        });
  
-       // Clear the text on exit
+
        mySeries.addEventHandler("mouseleave", function (e) {
          svg.selectAll(".dimple-hover-text").remove();
        });
- 
-       // Render everything
+
        myChart.draw();
  
      });

@@ -9,9 +9,11 @@ import numpy as np
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 from functools import reduce
+import subprocess
 
 engine = create_engine('sqlite:///../bdd/sql_database/ml_processed.db')
-
+# cmd=  """./../bdd/elasticsearch-7.10.0/bin/elasticsearch""" 
+# subprocess.call(cmd)
 # engine.execute('alter table reviews add column topics_str varchar(30)')
 
 
@@ -35,11 +37,6 @@ call_sql = importlib.import_module('process_sqldata')
 dashboard = call_sql.dashboard_queries()
 # import lstm_live_predict as KERAS_ML
 # import transformers_live_prediction as TRANSFORMERS
-
-
-# @app.route("/")
-# def hello():
-#     return render_template('chat.html')
 
 
 @app.route("/")

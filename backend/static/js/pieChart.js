@@ -59,7 +59,7 @@ function d3PieChart(dataset, datasetBarChart) {
         .append("svg:text")
         .attr("dy", ".35em")
         .attr("text-anchor", "middle")
-        .attr("style", "font-size: 18; font-family: Helvetica, sans-serif")
+        .attr("style", "font-size: 18; font-family: Helvetica, sans-serif; color:black")
         .attr("transform", function (d) { return "translate(" + arcFinal.centroid(d) + ")"; })
         .text(function (d) { return d.data.category; });
 
