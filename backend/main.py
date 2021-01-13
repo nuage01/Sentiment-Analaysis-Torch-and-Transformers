@@ -18,6 +18,7 @@ engine = create_engine('sqlite:///../bdd/sql_database/ml_processed.db')
 
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///../bdd/sql_database/ml_processed.db"
 db = SQLAlchemy(app)
